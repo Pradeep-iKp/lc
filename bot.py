@@ -69,8 +69,9 @@ async def _help(bot, update):
 
 
 # Store file
-@xbot.on_message(filters.media & filters.private)
+@xbot.on_message(filters.command('store') & filters.media)
 async def _main(bot, update):
+    replied = message.reply_to_message
     if OWNER_ID == 'all':
         pass
     elif int(OWNER_ID) == update.from_user.id:
